@@ -1,4 +1,4 @@
-package com.helloWorld.web;
+package simpleProject;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,19 +27,32 @@ public class Home extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // Obtener los valores para los parámetros de consulta
-
-        String userName = request.getParameter("name");
-
-        response.setContentType("text/html");
-
-        PrintWriter out = response.getWriter();
-
-        out.write("<h1>Hola Mundo, desde " + userName + "</h1>");
-
-    }
+		PrintWriter salida=response.getWriter();
+		
+		salida.println("<html><body>");
+		
+		salida.println("Nombre: " + request.getParameter("nombre")); 
+		
+		salida.println("<br><br>");
+		
+		salida.println("Apellido: " + request.getParameter("apellido")); 
+		
+		salida.println("<br><br>");
+		
+		salida.println("Lenguaje favorito: " + request.getParameter("lenguaje"));
+		
+		salida.println("<br><br>");
+		
+		salida.println("Ciudad: " + request.getParameter("ciudad")); 
+		
+		salida.println("<br><br>");
+		
+		salida.println("</body></html>");
+		
+		
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
