@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8">
+
+<restaurant>
+
+	<item categoria="desayuno">
+
+		<nombre>Pan con huevo revuelto</nombre>
+
+		<descripcion>Un pan ayuya con huevo.</descripcion>
+
+		<precio>$300</precio>
+
+	</item>
+
+	<item categoria="desayuno">
+
+		<nombre>Atun con lechuga</nombre>
+
+		<descripcion>Atun en agua con lechuga.</descripcion>
+
+		<precio>$1000</precio>
+
+	</item>
+
+	<item categoria="cena">
+
+		<nombre>Ensalada de frutas</nombre>
+
+		<descripcion>Ensalada con variedad de frutas</descripcion>
+
+		<precio>$1500</precio>
+
+	</item>
+
+	<item categoria="cena">
+
+		<nombre>Atun con lechuga</nombre>
+
+		<descripcion>Atun en agua con lechuga.</descripcion>
+
+		<precio>$1500</precio>
+
+	</item>
+
+	<item categoria="cena">
+
+		<nombre>Palta rellena</nombre>
+
+		<descripcion>Palta rellena con colitas de camaron</descripcion>
+
+		<precio>$2000</precio>
+
+	</item>
+
+</restaurant>
+
