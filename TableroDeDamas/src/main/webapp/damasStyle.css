@@ -1,0 +1,44 @@
+@charset "ISO-8859-1";
+.one{
+	color: red;
+	text-align: center;
+}
+
+body{ background-color: yellow; }
+
+div.anchura
+{
+	float: left;
+	display: block;
+	color: #8000ff;	
+}
+
+div.altura
+{
+	display: block;
+	color: red;
+}
+
+div.ajedrez
+{
+	width: 800px;
+	height: 600px;
+}
+div.ajedrez div div
+{	
+	width: 100px;
+	height: 80px;
+}
+
+div.ajedrez div:nth-child(odd) div:nth-child(odd){
+	background-color: white;
+}
+div.ajedrez div:nth-child(odd) div:nth-child(even){
+	background-color: black;
+}
+div.ajedrez div:nth-child(even) div:nth-child(even){
+	background-color: white;
+}
+div.ajedrez div:nth-child(even) div:nth-child(odd){
+	background-color: black;
+}
