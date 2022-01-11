@@ -30,15 +30,7 @@ public class Goodbye extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        String name = (String) session.getAttribute("name");
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+        String name = (String) session.getAttribute("nombre");
 	}
 
 }

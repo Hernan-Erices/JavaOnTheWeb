@@ -10,14 +10,15 @@
 
 <form action="ClickerServlet" method="get">
 
-	<button type="submit" name="submit" value="${numero}"> Clickeame </button>
-
+	<h2>Has hecho click <c:out value="${(contadorClick)}"/> veces</h2>
 	
+	<button>ClickMe!</button>
+
 </form>
 
 <br></br>
 
-<h2> Has clickeado <c:out value="${numero}"/> veces</h2>
+
 
 </body>
 </html>
