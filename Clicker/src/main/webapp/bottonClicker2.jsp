@@ -2,23 +2,23 @@
 <html>
 
 <head>
-
+<meta charset="UTF-8" />
 <title>Boton Clicker</title>
 
 </head>
 <body>
 
-<form action="ClickerServlet" method="get">
+<form action="Clicker" method="post">
 
-	<h2>Has hecho click <c:out value="${(contadorClick)}"/> veces</h2>
-	
-	<button>ClickMe!</button>
+<button type="submit" name="submit" value="${numero}"> Click me </button>
 
 </form>
 
-<br></br>
 
-
+<p>
+you have clicked this button <c:out value="${numero}"/>
+times
+</p>
 
 </body>
 </html>

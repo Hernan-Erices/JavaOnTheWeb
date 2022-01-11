@@ -2,22 +2,18 @@
 <html>
 
 <head>
-
+<meta charset="UTF-8" />
 <title>Boton Clicker</title>
 
 </head>
 <body>
 
-<form action="ClickerServlet" method="get">
+<form action="Clicker" method="post">
 
-	<button type="submit" name="submit" value="${numero}"> Clickeame </button>
+<button type="submit" name="submit" value="0"> Click me </button>
 
-	
 </form>
-
-<br></br>
-
-<h2> Has clickeado <c:out value="${numero}"/> veces</h2>
+</p>
 
 </body>
 </html>
