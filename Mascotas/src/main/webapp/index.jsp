@@ -10,9 +10,8 @@
 </head>
 <body>
 
-<div>
-
 <form action="dogController" method="get">
+
 	<h2>Make a dog</h2>
 	Name:<input type="text" name="name">
 	<br><br>
@@ -26,11 +25,6 @@
 
 </form>
 
-</div>
-
-
-<div>
-
 <form action="catController" method="get">
 	<h2>Make a cat</h2>
 	Name:<input type="text" name="name">
@@ -42,9 +36,6 @@
 	<input type="submit" value="Submit">
 
 </form>
-
-</div>
-
 
 </body>
 </html>

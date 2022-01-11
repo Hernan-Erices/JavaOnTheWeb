@@ -1,23 +1,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html>
 <head>
-
     <meta charset="UTF-8" />
 
-    <title>People Page</title>
-
+    <title>Pet</title>
+    
 </head>
-
 <body>
 
     <p>
-        <c:out value="${animal.makePet()}"/>
+        <c:out value="${cat.aCat()}"/>
     </p>
-    
-</body>
 
+</body>
 </html>

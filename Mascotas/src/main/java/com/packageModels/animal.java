@@ -8,7 +8,7 @@ public class animal {
     
     private int weight;
     
-    public animal() {
+    public animal(String name, String breed, int weight) {
     	
     	this.name = name;
     	this.breed = breed;
@@ -37,13 +37,5 @@ public class animal {
 
 	public void setWeight(int weight) {
 		this.weight = weight;
-	}
-    
-    public String makePet() {
-		return "You created a " + breed + ", " + name + " Weight ";	
-    }
-    
-    
-    
-
+	} 
 }

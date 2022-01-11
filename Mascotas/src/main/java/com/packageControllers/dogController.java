@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.packageModels.animal;
+import com.packageModels.dog;
 
 
 /**
@@ -32,23 +33,22 @@ public class dogController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+			
+		String breed = request.getParameter("breed");
+		int weight = Integer.parseInt(request.getParameter("weight"));
+		String name = request.getParameter("name");
+				
+		dog makedog = new dog(name, breed, weight);
 		
-		
-		
+		request.setAttribute("dog", makedog);		
 		
 		PrintWriter salida=response.getWriter();
 		salida.println(request.getParameter("name"));
 		salida.println(request.getParameter("breed"));
+		salida.println(request.getParameter("weight"));
 		
-		animal dog = new animal();
-		request.setAttribute("animal", dog);
-		
-		 RequestDispatcher view = request.getRequestDispatcher("/dogJps.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/dog.jsp");
 		 
-		 view.forward(request, response);
-		 
-		 
+		 view.forward(request, response);	 
 	}
 }
