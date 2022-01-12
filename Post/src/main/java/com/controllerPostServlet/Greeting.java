@@ -1,4 +1,4 @@
-
+package com.controllerPostServlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,21 +25,31 @@ public class Greeting extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		
-        String name = request.getParameter("name");
-        
-        request.setAttribute("name", name);
-
-        PrintWriter salida=response.getWriter();
-		salida.println(request.getParameter("name"));
-        
-        
-        RequestDispatcher view = request.getRequestDispatcher("greet.jsp");
-
-        view.forward(request, response);
+		PrintWriter salida=response.getWriter();
 		
-	
+		salida.println("<html><body>");
+		
+		salida.println("Nombre: " + request.getParameter("name")); 
+		
+		salida.println("</body></html>");
+
+	    
+	    
+		
 	}
 
 }

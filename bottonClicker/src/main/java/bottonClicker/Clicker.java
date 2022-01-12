@@ -29,17 +29,16 @@ public class Clicker extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(); //Creacion de la session
 		
 		int Clicker = Integer.parseInt(request.getParameter("submit"));
 		
-		Clicker++;
+		Clicker++; //Incremento de la variable
 		
 		session.setAttribute("num", Clicker);
 		request.setAttribute("num",session.getAttribute("num"));
-		RequestDispatcher view = request.getRequestDispatcher("/index2.jsp");
 		
-		
+		RequestDispatcher view = request.getRequestDispatcher("/index2.jsp"); 
 		view.forward(request, response);
 	}
 
