@@ -30,47 +30,31 @@ public class GreatNumber extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
-	    HttpSession session = request.getSession();
+		System.out.println("doPost");
+		
+	    HttpSession sesion = request.getSession();
+	    int numeroIngresado=Integer.parseInt(request.getParameter("number"));
+	    int numeroAleatorio = (int) (1 + Math.random() * 100);
 	    
-	    int numS=Integer.parseInt(request.getParameter("number"));
-	    
-	    String number = request.getParameter("numberoElegido");
-		int num = Integer.parseInt(number);
-	
-	    int random = (int) (1 + Math.random() * 100);
-	    
-	    if(num>numS) {
-	    	session.setAttribute("number", random);
-	    	session.setAttribute("mensaje", "Too low");
-	    	response.sendRedirect("index.jsp");
+	    if(numeroIngresado>numeroAleatorio) {
+	    	sesion.setAttribute("number", numeroAleatorio);
+	    	sesion.setAttribute("message", "Too High");
 	    }
-	    else if(num<numS){
-	    	session.setAttribute("number", random);
-	    	session.setAttribute("mensaje", "Too High");
-	    	response.sendRedirect("index.jsp");
-	    }else if(num == numS){
-	    	session.setAttribute("number", random);
-	    	session.setAttribute("mensaje", "You did");
-	    	response.sendRedirect("index.jsp");
+	    else if(numeroIngresado<numeroAleatorio){
+	    	sesion.setAttribute("number", numeroAleatorio);
+	    	sesion.setAttribute("message", "Too Low");
+	    }else if(numeroIngresado == numeroAleatorio){
+	    	sesion.setAttribute("number", numeroAleatorio);
+	    	sesion.setAttribute("message", "You did");
 	    }
-	    else {
-	    	response.sendRedirect("index.jsp");
-		}
-	    
 	    RequestDispatcher view = request.getRequestDispatcher("index.jsp");
 		view.forward(request, response);
-	    
-	    response.sendRedirect("/index");
 	}
 
 }
