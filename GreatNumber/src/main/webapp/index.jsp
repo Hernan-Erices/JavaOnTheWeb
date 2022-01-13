@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -14,39 +15,35 @@
 <body style="background: #e7e7e7">
 
 <%
-  String mensaje=(String)session.getAttribute("mensaje");
- %>
-
-
+	String message=(String)session.getAttribute("message");
+%>
+ 
 <center>
 
 <h1 style = "font-family:courier,arial,helvética;">Welcome to the Great Number Game!</h1>
 
 <h2 style = "font-family:courier,arial,helvética;">I am thinking of a number berween 1 and 100 <br> Take a guess!</h2>
 
-<form action="GreatNumber" methods="POST">
+<form action="GreatNumber" methods="get">
 
-
-   <input type="text" name="randomNumber">
+   <input type="text" name="number" value="">
     
-    <button type="submit" name="submit" value="${randomNumber}"> Click me </button>
+   <input type = "submit" value = "submit" >
    
    <br></br>
    
-   <%=mensaje %>
+	<%=message %>
 
 </form>
 
 <br></br>
 
-<form action="getnumber.jsp" method="post">
+<form action="index.jsp" method="post">
     <input type = "submit" value = "Obtener nuevo numero">
 </form>
 
 
 </center>
-
-
 
 </body>
 </html>

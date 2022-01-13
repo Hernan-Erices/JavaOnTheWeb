@@ -36,46 +36,55 @@ public class GreatNumber extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	@SuppressWarnings("removal")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-	    HttpSession session = request.getSession();		
-		
+	    HttpSession session = request.getSession();
+	    
+	    int numS=Integer.parseInt(request.getParameter("number"));
+	    
+	    String number = request.getParameter("number");
+		int num = Integer.parseInt(number);
+	
 
-	    int randomNumber = (int) (1 + Math.random() * 100);
+	    int random = (int) (1 + Math.random() * 100);
 	    
-	    session.setAttribute("randomNumber", randomNumber);
-	    request.setAttribute("randomNumber",session.getAttribute("randomNumber"));
+	    //session.setAttribute("randomNumber", random);
+	    //request.setAttribute("randomNumber",session.getAttribute("randomNumber"));
 
-
-	    Integer integer=(int)session.getAttribute("realNumber");
-	    int realNumber=integer.intValue();
+	    //Integer integer=(Integer)session.getAttribute("randomNumber");
+	    //int NumeroReal=integer.intValue();
 	    
-	    session.setAttribute("realNumber", realNumber);
-	    request.setAttribute("realNumber",session.getAttribute("realNumber"));
+	    //System.out.println(NumeroReal);
+	    //System.out.println(numS);
 	    
-	    realNumber = Integer.parseInt(request.getParameter("submit"));
+	    //session.setAttribute("NumeroElegido", NumeroElegido);
+	    //request.setAttribute("NumeroElegido",session.getAttribute("NumeroElegido"));
 	    
-	    if(randomNumber>realNumber) {
+	    //NumeroElegido = Integer.parseInt(request.getParameter("submit"));
+	    
+	    if(num>numS) {
+	    	session.setAttribute("number", random);
 	    	session.setAttribute("mensaje", "Too low");
-	    	response.sendRedirect("inputNumber.jsp");
+	    	response.sendRedirect("getnumber.jsp");
 	    }
-	    else if(randomNumber<realNumber){
+	    else if(num<numS){
+	    	session.setAttribute("number", random);
 	    	session.setAttribute("mensaje", "Too Hight");
-	    	response.sendRedirect("inputNumber.jsp");
-	    }else if(realNumber == randomNumber){
+	    	response.sendRedirect("getnumber.jsp");
+	    }else if(num == numS){
+	    	session.setAttribute("number", random);
 	    	session.setAttribute("mensaje", "You did");
-	    	response.sendRedirect("inputNumber.jsp");
+	    	response.sendRedirect("getnumber.jsp");
 	    }
 	    else {
-	    	response.sendRedirect("inputNumber.jsp");
+	    	response.sendRedirect("getnumber.jsp");
 		}
 	    
-
-	    
-		RequestDispatcher view = request.getRequestDispatcher("/inputNumber.jsp"); 
+	    RequestDispatcher view = request.getRequestDispatcher("index.jsp");
 		view.forward(request, response);
+	    
+	    response.sendRedirect("/index");
   
 	}
 
