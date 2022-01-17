@@ -9,9 +9,12 @@
 <body>
 <center>
 
+<% HttpSession sesion=request.getSession(); %>
+
+
 <h1>Create a new team</h1>
 
-<form action="" method="">
+<form action="Teams.jsp" method="">
 
 First Name: <input type="text" value="" name="NamePlayer">
 <br>
@@ -20,6 +23,7 @@ Last Name: <input type="text" value="" name="lNamePlayer">
 Age:<input type="number" value="" name="AgePLayer">
 <br>
 <input type="submit" value="Add" name="SubmitPlayer">
+
 
 
 </form>

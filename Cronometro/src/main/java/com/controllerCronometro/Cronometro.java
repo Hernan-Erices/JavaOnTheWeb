@@ -1,6 +1,8 @@
 package com.controllerCronometro;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,14 +30,24 @@ public class Cronometro extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {			
+		}
+	    
+	 
+	
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 	    HttpSession sesion = request.getSession();
 
 		
 		int minutos=0;
 		int segundos=0;
-			
+		System.out.println("holaa");
+		
 		for(minutos=0;minutos<60;minutos++) {
 				
 			for(segundos=0;segundos<60;segundos++) {
@@ -47,18 +59,27 @@ public class Cronometro extends HttpServlet {
 				}catch(InterruptedException e) {}
 				
 				sesion.setAttribute("cronometro", minutos+":"+segundos);
-				
-				
-			}	
-		}	
+				sesion.getAttribute("cronometro");
+			}
+			
+			sesion.setAttribute("cronometro", minutos+":"+segundos);
+			sesion.getAttribute("cronometro");
+			
+			
+
+	    
+//	    Timer timer = new Timer();
+//	    sesion.setAttribute("cronometro", timer.cronometro());
+//	    
+//	    System.out.println("hello");
+	    
+	    RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+		view.forward(request, response);
+		
+		
+		
+		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
+}
 }

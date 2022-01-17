@@ -1,67 +1,66 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@page session="true"%>  
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 
+<title>Calculadora</title>
 
-<title>Calculadora.</title>
-
-<script type="text/javascript">
-function muestrapantalla(){
-var resultado = document.getElementById("resultado");
-
-resultado.value = resultado.value + window.event.srcElement.value;
-}
-</script>
 </head>
+
+<%
+	HttpSession sesion=request.getSession();
+	String resultado=(String)sesion.getAttribute("resultado");
+	
+	
+%>
+
+
+
 <body>
-
-
 <FORM Id="calculadora" ACTION="Calculadora" METHOD="POST">
-<table bgColor="#c0c0c0" border="2" align="center" cellpadding="2" cellspacing="2">
+<table bgColor="red" align="center">
 
-<tr><th colspan=4><INPUT TYPE="text" NAME="resultado" Id="resultado" size="20" VALUE="" maxlength="10"></th></tr>
+<tr><th colspan=4><INPUT TYPE="text" NAME="resultado" Id="resultadoA" size="40" VALUE=""></th></tr>
 
-<tr><th><INPUT TYPE="button" NAME="1" VALUE="1" onClick="muestrapantalla()"></th>
-<th><INPUT TYPE="button" NAME="2" VALUE="2" onClick="muestrapantalla()"></th>
-<th><INPUT TYPE="button" NAME="3" VALUE="3" onClick="muestrapantalla()"></th>
-<th><INPUT TYPE="button" NAME="operador" VALUE="+" onClick='document.getElementById("calculadora").submit()'></th></tr>
+<tr><th><INPUT TYPE="button" NAME="1" VALUE="1"></th>
+<th><INPUT TYPE="button" NAME="2" VALUE="2"></th>
+<th><INPUT TYPE="button" NAME="3" VALUE="3"></th>
+<th><INPUT TYPE="button" NAME="operador" VALUE="+"></th></tr>
 
+<tr><th><INPUT TYPE="button" NAME="4" VALUE="4"></th>
+<th><INPUT TYPE="button" NAME="5" VALUE="5"></th>
+<th><INPUT TYPE="button" NAME="6" VALUE="6"></th>
+<th><INPUT TYPE="button" NAME="operador" VALUE="-"></th></tr>
 
-<th><INPUT TYPE="button" NAME="operador" VALUE="-" onClick='document.getElementById("calculadora").submit()'></th></tr>
+<tr><th><INPUT TYPE="button" NAME="7" VALUE="7"></th>
+<th><INPUT TYPE="button" NAME="8" VALUE="8"></th>
+<th><INPUT TYPE="button" NAME="9" VALUE="9"></th>
+<th><INPUT TYPE="button" NAME="operador" VALUE="*"></th>
 
-<th><INPUT TYPE="button" NAME="operador" VALUE="*" onClick='document.getElementById("calculadora").submit()'></th>
+<tr><th><INPUT TYPE="button" NAME="." VALUE="."></th>
+<th><INPUT TYPE="button" NAME="0" VALUE="0"></th>
+<th><INPUT TYPE="button" NAME="operador" VALUE="=" onClick="resultado"></th>
+<th><INPUT TYPE="button" NAME="/" VALUE="/"></th></tr>
 
-<th><INPUT TYPE="button" NAME="operador" VALUE="=" onClick='document.getElementById("calculadora").submit()'></th>
-<th><INPUT TYPE="button" NAME="/" VALUE="/" onClick='document.getElementById("calculadora").submit()'></th></tr>
-
-<tr><th colspan=4><INPUT TYPE="Reset" NAME="borrar" VALUE="limpiar"></th></tr>
+<tr><th colspan=4><INPUT TYPE="Reset" NAME="borrar" VALUE="clear"></th></tr>
 </table>
 </FORM>
 
 <center>
 
-<h2>resultados</h2>
-<br>
-<%
+<h2>RESULTADOS</h2>
 
+<h2>
 
+<%=resultado %>
 
-%>
+</h2>
 
 
 </center>
-
-
-
-
-
-
-
-
-
 
 
 </body>

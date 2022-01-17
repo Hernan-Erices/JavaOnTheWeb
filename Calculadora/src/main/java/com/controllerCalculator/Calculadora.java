@@ -45,58 +45,28 @@ public class Calculadora extends HttpServlet {
 
 		if (operador == "+"){
 		resultado = num1 + num2;
+		sesion.setAttribute("resultado", resultado);
 		}
 		else if (operador == "-"){
 		resultado = num1 - num2;
+		sesion.setAttribute("resultado", resultado);
 		}
 		else if (operador == "*"){
 		resultado = num1 * num2;
+		sesion.setAttribute("resultado", resultado);
 		}
 		else if (operador == "/"){
 		resultado = num1 / num2;
+		sesion.setAttribute("resultado", resultado);
 		}
 		else if (operador == "="){
 		resultado = num1;
 		pos="";
 		};
 
-		//sesion.setAttribute = ("resultado", new Float (resultado));
-
 		RequestDispatcher view = request.getRequestDispatcher("calculadora.jsp");
 		view.forward(request, response);
-		
-		
-		
 		}
-		
-		
-//		String mensajeOperacion = "";
-//
-//        if (request.getParameter("operacion").equals("Sumar")) {
-//            mensajeOperacion = "El resultado de " + 
-//            Integer.parseInt(request.getParameter("num1"))+ " + " + 
-//            Integer.parseInt(request.getParameter("num2")) + " = " + 
-//            (Integer.parseInt(request.getParameter("num1"))+Integer.parseInt(request.getParameter("num2")));
-//        }else if(request.getParameter("operacion").equals("Restar")){
-//            mensajeOperacion = "El resultado de " + 
-//            Integer.parseInt(request.getParameter("num1"))+ " - " + 
-//            Integer.parseInt(request.getParameter("num2")) + " = " + 
-//            (Integer.parseInt(request.getParameter("num1"))-Integer.parseInt(request.getParameter("num2")));
-//        }else if(request.getParameter("operacion").equals("Multiplicar")){
-//            mensajeOperacion = "El resultado de " + 
-//            Integer.parseInt(request.getParameter("num1"))+ " * " + 
-//            Integer.parseInt(request.getParameter("num2")) + " = " + 
-//            (Integer.parseInt(request.getParameter("num1"))*Integer.parseInt(request.getParameter("num2")));
-//        }else if(request.getParameter("operacion").equals("Dividir")){
-//            if(Integer.parseInt(request.getParameter("num2"))!=0){
-//                mensajeOperacion = "El resultado de " + 
-//                Integer.parseInt(request.getParameter("num1"))+ " / " + 
-//                Integer.parseInt(request.getParameter("num2")) + " = " + 
-//                (Integer.parseInt(request.getParameter("num1"))/Integer.parseInt(request.getParameter("num2")));
-//            }else{
-//                mensajeOperacion = "No se puede dividir entre 0";
-//            }
-//        }
 		
 		
 		

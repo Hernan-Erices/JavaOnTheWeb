@@ -17,11 +17,6 @@
 HttpSession sesion=request.getSession();
 String TeamName = request.getParameter("newTeam");
 
-
-
-
-
-
 %>
 
 

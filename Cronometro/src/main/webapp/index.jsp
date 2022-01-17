@@ -12,17 +12,17 @@
 
 <%
 	HttpSession sesion=request.getSession();
-	Integer cronometro=(Integer)sesion.getAttribute("cronometro");
+	String cronometro=(String)sesion.getAttribute("cronometro");
+	
 %>
-
-
-<h2>
-
 
 <%=cronometro   %>
 
-</h2>
 
+
+
+
+</h2>
 
 
 </body>

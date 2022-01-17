@@ -7,6 +7,18 @@
 <title>Prototype rosters</title>
 </head>
 <body>
+
+
+<%
+
+HttpSession sesion=request.getSession();
+
+String NamePlayer = request.getParameter("NamePlayer");
+String lNamePlayer = request.getParameter("lNamePlayer");
+int AgePLayer=Integer.parseInt(request.getParameter("AgePLayer"));
+
+%>
+
 <center>
 
 <h1>Prototype rosters</h1>
@@ -25,27 +37,9 @@
 
   <tr>
 
-    <th></th>
-    <th></th>
-    <th></th>
-    <td><a href="">Delete</a></td>
-
-  </tr>
-
-  <tr>
-
-    <th></th>
-    <th></th>
-    <th></th>
-    <td><a href="">Delete</a></td>
-
-  </tr>
-
-  <tr>
-
-    <th></th>
-    <th></th>
-    <th></th>
+    <th> <%=NamePlayer %> </th>
+    <th> <%=lNamePlayer %> </th>
+    <th> <%=AgePLayer %> </th>
     <td><a href="">Delete</a></td>
 
   </tr>
