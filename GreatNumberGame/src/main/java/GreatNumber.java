@@ -36,16 +36,13 @@ public class GreatNumber extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doPost");
-		
 	    HttpSession sesion = request.getSession();
 	    int numeroIngresado=Integer.parseInt(request.getParameter("number"));
 	    int numeroAleatorio = (int) (1 + Math.random() * 100);
 	    
 	    if(numeroIngresado>numeroAleatorio) {
 	    	sesion.setAttribute("number", numeroAleatorio);
-	    	sesion.setAttribute("message", "Too High");
-	    }
+	    	sesion.setAttribute("message", "Too High");}
 	    else if(numeroIngresado<numeroAleatorio){
 	    	sesion.setAttribute("number", numeroAleatorio);
 	    	sesion.setAttribute("message", "Too Low");

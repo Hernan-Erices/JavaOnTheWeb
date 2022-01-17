@@ -1,26 +1,53 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Lista de equipose</title>
+<title>Prototype rosters</title>
 </head>
 <body>
 <center>
+<h1>Prototype rosters</h1>
+<h3><a href="CreateNewTeam.jsp">New Team</a></h3>
 
-<h2>Create a new Team</h2>
 
-<form action="Rosters" method="post">
+<%
 
-	Team name: <input type="text" name="name">
-	<br><br>
-	<input type="submit" value="Create">
-	<br><br>
+HttpSession sesion=request.getSession();
+String TeamName = request.getParameter("newTeam");
 
-</form>
+
+
+
+
+
+%>
+
+
+<table border="1" name="TeamsCreated">
+  <tr>
+    <th>Team</th>
+    <th>Players</th>
+    <th>Action</th>
+  </tr>
+
+  <tr>
+    <td> <%=TeamName %> </td>
+    <td>  </td>
+     <td><a href="Teams.jsp">Details</a> <button>Delete</button>></td>
+  </tr>
+
+  <br></br>
+</table>
+
+
+<%   
+
+
+
+%>
 
 </center>
-
 </body>
 </html>

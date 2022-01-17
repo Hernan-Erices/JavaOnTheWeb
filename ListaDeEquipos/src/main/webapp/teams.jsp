@@ -4,15 +4,55 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Teams</title>
+<title>Prototype rosters</title>
 </head>
 <body>
-
 <center>
 
-<h2>Teams</h2>
-<br></br>
-<p><a href="index.jsp">New Team</a></p>
+<h1>Prototype rosters</h1>
+
+<h3><a href="CreateNewPlayer.jsp">New player</a></h3>
+
+<table border="1">
+  <tr>
+
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Age</th>
+    <td>Actions</td>
+
+  </tr>
+
+  <tr>
+
+    <th></th>
+    <th></th>
+    <th></th>
+    <td><a href="">Delete</a></td>
+
+  </tr>
+
+  <tr>
+
+    <th></th>
+    <th></th>
+    <th></th>
+    <td><a href="">Delete</a></td>
+
+  </tr>
+
+  <tr>
+
+    <th></th>
+    <th></th>
+    <th></th>
+    <td><a href="">Delete</a></td>
+
+  </tr>
+  
+  <br></br>
+</table>
+
 
 
 </center>
