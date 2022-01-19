@@ -13,68 +13,63 @@ import javax.servlet.http.HttpSession;
 
 import models.Timer;
 
-/**
- * Servlet implementation class Stopwatch
- */
 @WebServlet("/Stopwatch")
 public class Stopwatch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String urlparam = request.getParameter("action");
-		if(urlparam !=null) {
-			if(urlparam.equals("reset")) {
+		
+		String parametro = request.getParameter("action");
+		
+		if(parametro != null) {
+			if(parametro.equals("reiniciar")) {
 				request.getSession().invalidate();
 			}
 		}
 		
 		
+		HttpSession sesion = request.getSession();
 		
-		HttpSession session = request.getSession();
+		Date tiempoActual = new Date();
 		
-		Date currentTime = new Date();
-		session.setAttribute("currentTime", currentTime);
-		System.out.println(session.getAttribute("startTime"));
+		sesion.setAttribute("tiempoActual", tiempoActual);
+		
+		System.out.println(sesion.getAttribute("horaInicio"));
 		
 		
-		if(session.getAttribute("times")==null) {
-			session.setAttribute("times", new ArrayList<Timer>());
+		if(sesion.getAttribute("times")==null) {
+			
+			sesion.setAttribute("times", new ArrayList<Timer>());
 		}
-		if(urlparam !=null) {
-			if(urlparam.equals("start")) {
-				if(session.getAttribute("startTime")==null) {
+		
+		if(parametro !=null) {
+			if(parametro.equals("iniciar")) {
+				if(sesion.getAttribute("horaInicio")==null) {
 					Date start = new Date();
-					session.setAttribute("startTime", start);
-				}
+					sesion.setAttribute("horaInicio", start);
+			}
 				
-			}else if(urlparam.equals("stop")) {
-				if(session.getAttribute("startTime")!=null) {
+			}else if(parametro.equals("detener")) {
+				if(sesion.getAttribute("horaInicio")!=null) {
+					
 					Timer newTime = new Timer();
-					session.setAttribute("startTime", null);
-					session.setAttribute("endTime", null);
-					ArrayList<Timer> times = (ArrayList<Timer>) session.getAttribute("times");
+					
+					sesion.setAttribute("horaInicio", null);
+					sesion.setAttribute("endTime", null);
+					
+					ArrayList<Timer> times = (ArrayList<Timer>) sesion.getAttribute("times");
 					times.add(newTime);
-					session.setAttribute("times", times);
+					sesion.setAttribute("times", times);
 				}
 			}
 		}
-		if(session.getAttribute("startTime")!=null) {
-			long difference = currentTime.getTime() - ((Date)session.getAttribute("startTime")).getTime();
-			session.setAttribute("difference", difference);
+		
+		if(sesion.getAttribute("HoraInicio")!=null) {
+			long difference = tiempoActual.getTime() - ((Date)sesion.getAttribute("HoraInicio")).getTime();
+			sesion.setAttribute("difference", difference);
 		}
-		
-		
 		
 		request.getRequestDispatcher("Stopwatch.jsp").forward(request, response);
 	}
