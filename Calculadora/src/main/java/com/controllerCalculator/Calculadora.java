@@ -23,45 +23,49 @@ public class Calculadora extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		float resultado = Float.parseFloat(request.getParameter("resultado"));
+		Float resultado = Float.parseFloat(request.getParameter("resultado"));
 
-		String pos = (String) request.getParameter("resultado");
+		String result = (String) request.getParameter("resultado");
 		String operador = (String) request.getParameter("operador");
+		
 		HttpSession sesion = request.getSession(true);
 
 		float num1=0;
 		float num2=0;
 
-		if (pos==""){
+		if (result==""){
 		float numero = Float.parseFloat(request.getParameter("resultado"));
 		sesion.setAttribute("numero", sesion.getAttribute(operador));
-		resultado= num1;
+		resultado = num1;
 		}
+		
 		else {
+			
 		float numero = Float.parseFloat(request.getParameter("resultado"));
-		sesion.setAttribute("numero", new Float(numero));
-		resultado= num2;
+		sesion.setAttribute("numero",numero);
+		resultado = num2;
+		
 		}
 
-		if (operador == "+"){
+		if ("+".equals(operador)){
 		resultado = num1 + num2;
 		sesion.setAttribute("resultado", resultado);
 		}
-		else if (operador == "-"){
+		else if ("-".equals(operador)){
 		resultado = num1 - num2;
 		sesion.setAttribute("resultado", resultado);
 		}
-		else if (operador == "*"){
+		else if ("*".equals(operador)){
 		resultado = num1 * num2;
 		sesion.setAttribute("resultado", resultado);
 		}
-		else if (operador == "/"){
+		else if ("/".equals(operador)){
 		resultado = num1 / num2;
 		sesion.setAttribute("resultado", resultado);
 		}
-		else if (operador == "="){
+		else if ("=".equals(operador)){
 		resultado = num1;
-		pos="";
+		result="";
 		};
 
 		RequestDispatcher view = request.getRequestDispatcher("calculadora.jsp");

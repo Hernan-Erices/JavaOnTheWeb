@@ -13,6 +13,7 @@ public class Team {
 	private ArrayList<Player> players = new ArrayList<>(); 
 	
 	public ArrayList<Player> getPlayers() { return players;}
+	
 	public Team() {}
 	
 	public Team(String team_name) {this.team_name = team_name;}

@@ -39,7 +39,7 @@ public class NewTeam extends HttpServlet {
 		
 		if(request.getParameter("team_name")!=null) {
 			Team.addTeam(request.getParameter("team_name"));
-			response.sendRedirect("/TeamRoster");
+			response.sendRedirect("/TeamRoster/teamList.jsp");
 		}else {
 			doGet(request, response);
 		}

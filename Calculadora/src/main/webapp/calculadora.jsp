@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@page session="true"%>  
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 
@@ -12,42 +12,57 @@
 
 <%
 	HttpSession sesion=request.getSession();
-	String resultado=(String)sesion.getAttribute("resultado");
-	
-	
+	String resultado=(String)sesion.getAttribute("resultado");	
 %>
 
 
 
 <body>
-<FORM Id="calculadora" ACTION="Calculadora" METHOD="POST">
+<form action="Calculadora" METHOD="post">
 <table bgColor="red" align="center">
+<tr><th colspan=4><input type="text" name="resultado" size="40" value=""></th></tr>
 
-<tr><th colspan=4><INPUT TYPE="text" NAME="resultado" Id="resultadoA" size="40" VALUE=""></th></tr>
 
-<tr><th><INPUT TYPE="button" NAME="1" VALUE="1"></th>
-<th><INPUT TYPE="button" NAME="2" VALUE="2"></th>
-<th><INPUT TYPE="button" NAME="3" VALUE="3"></th>
-<th><INPUT TYPE="button" NAME="operador" VALUE="+"></th></tr>
+<tr><th><input type="button" name="1" value="1"></th>
+<th><input type="button" name="2" value="2"></th>
+<th><input type="button" name="3" value="3"></th>
+<th><input type="button" name="operador" value="+"></th></tr>
 
-<tr><th><INPUT TYPE="button" NAME="4" VALUE="4"></th>
-<th><INPUT TYPE="button" NAME="5" VALUE="5"></th>
-<th><INPUT TYPE="button" NAME="6" VALUE="6"></th>
-<th><INPUT TYPE="button" NAME="operador" VALUE="-"></th></tr>
+<tr><th>
+<input type="button" name="4" value="4" onclick="resultado"></th>
+<th>
+<input type="button" name="5" value="5"></th>
+<th>
+<input type="button" name="6" value="6"></th>
+<th>
+<input type="button" name="operador" value="-">
+</th></tr>
 
-<tr><th><INPUT TYPE="button" NAME="7" VALUE="7"></th>
-<th><INPUT TYPE="button" NAME="8" VALUE="8"></th>
-<th><INPUT TYPE="button" NAME="9" VALUE="9"></th>
-<th><INPUT TYPE="button" NAME="operador" VALUE="*"></th>
+<tr><th>
+<input type="button" name="7" value="7"></th>
+<th>
+<input type="button" name="8" value="8"></th>
+<th>
+<input type="button" name="9" value="9"></th>
+<th>
+<input type="button" name="operador" VALUE="*">
+</th>
 
-<tr><th><INPUT TYPE="button" NAME="." VALUE="."></th>
-<th><INPUT TYPE="button" NAME="0" VALUE="0"></th>
-<th><INPUT TYPE="button" NAME="operador" VALUE="=" onClick="resultado"></th>
-<th><INPUT TYPE="button" NAME="/" VALUE="/"></th></tr>
+<tr><th>
+<input type="button" name="." value="."></th>
+<th>
+<input type="button" name="0" value="0"></th>
+<th>
+<input type="button" name="operador" value="=" onClick="resultado"></th>
+<th>
+<input type="button" name="/" value="/">
+</th></tr>
 
-<tr><th colspan=4><INPUT TYPE="Reset" NAME="borrar" VALUE="clear"></th></tr>
+<tr><th colspan=4>
+<input type="Reset" name="borrar" value="limpiar">
+</th></tr>
 </table>
-</FORM>
+</form>
 
 <center>
 

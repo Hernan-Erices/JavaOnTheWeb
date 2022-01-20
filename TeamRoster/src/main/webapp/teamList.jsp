@@ -13,12 +13,15 @@
 <tr><th>Team</th><th>Players</th><th>Action</th></tr>
 <%for(int i = 0; i < Team.getTeams().size();i++){ %>
 <tr>
+
 <td><%= Team.getTeams().get(i).getTeam_name() %>
+
 </td><td>
+
 <%= Team.getTeams().get(i).getPlayers().size() %>
+
 </td><td>
 <a href="/TeamRoster/teams?id=<%=i%>">Details</a>
-<a href="/TeamRoster/teams?id=<%=i%>&delete=true">Delete</a>
 </td>
 </tr>
 <%} %>
